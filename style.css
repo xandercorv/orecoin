@@ -140,6 +140,90 @@ section {
     box-shadow: 0 10px 20px rgba(255, 204, 51, 0.3);
 }
 
+/* Stacking Grids */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.footer-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Overlay Layout (Mobile Default) */
+.overlay-container {
+    display: grid;
+    place-items: center;
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.overlay-bg {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 30px;
+    opacity: 0.5;
+    /* Darker for mobile overlay readability */
+}
+
+.overlay-content {
+    grid-area: 1 / 1;
+    position: relative;
+    z-index: 2;
+    margin: 1rem;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1024px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header nav {
+        display: none;
+    }
+
+    h1 {
+        font-size: 2.22rem !important;
+    }
+
+    .buy-overlay {
+        margin: 0.5rem;
+        padding: 0.75rem !important;
+    }
+
+    .buy-overlay h4 {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+
+    .buy-overlay p {
+        font-size: 0.7rem !important;
+        line-height: 1.2;
+    }
+
+    .buy-overlay span {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.9rem !important;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -226,12 +310,43 @@ section {
         display: none;
     }
 
-    #tokenomics>.container,
-    #buy>.container {
-        grid-template-columns: 1fr !important;
+    h1 {
+        font-size: 2.22rem !important;
     }
 
-    h1 {
-        font-size: 4rem !important;
+    .overlay-content {
+        margin: 0.5rem;
+        padding: 0.75rem !important;
+    }
+
+    .overlay-content h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .overlay-content h4 {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+
+    .overlay-content p {
+        font-size: 0.7rem !important;
+        line-height: 1.2;
+    }
+
+    .overlay-content span {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .footer-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    section {
+        padding: 40px 0;
     }
 }
