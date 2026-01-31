@@ -1,0 +1,237 @@
+:root {
+    --bg-dark: #0a0a0b;
+    --gold: #ffcc33;
+    --gold-bright: #ffe066;
+    --fire: #ff4d00;
+    --text-light: #f5f5f7;
+    --text-muted: #a1a1a6;
+    --accent: #d4af37;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* Utilities */
+.text-center {
+    text-align: center;
+}
+
+.gold-text {
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(255, 204, 51, 0.5);
+}
+
+.fire-text {
+    color: var(--fire);
+    text-shadow: 0 0 10px rgba(255, 77, 0, 0.5);
+}
+
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+}
+
+.btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--accent));
+    color: #000;
+}
+
+.btn-gold:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 204, 51, 0.3);
+}
+
+.btn-outline-gold {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+}
+
+.btn-outline-gold:hover {
+    background: linear-gradient(135deg, var(--gold), var(--accent));
+    color: #000;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 204, 51, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero Animations */
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(255, 204, 51, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px rgba(255, 204, 51, 0.8));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 5px rgba(255, 204, 51, 0.5));
+    }
+}
+
+.hero-logo {
+    animation: glow 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.float {
+    animation: float 4s infinite ease-in-out;
+}
+
+/* Roadmap Specific */
+.roadmap-container {
+    position: relative;
+    padding: 2rem;
+    background: url('assets/roadmap.jpg') center/contain no-repeat;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.roadmap-phase {
+    max-width: 300px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 768px) {
+    header nav {
+        display: none;
+    }
+
+    #tokenomics>.container,
+    #buy>.container {
+        grid-template-columns: 1fr !important;
+    }
+
+    h1 {
+        font-size: 4rem !important;
+    }
+}
